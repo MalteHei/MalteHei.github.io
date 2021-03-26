@@ -19,6 +19,7 @@ body {
   min-width: 200px;
   width: 50%;
   margin: 0;
+  padding: 50vh 0;
   box-shadow: min(-100vw, -100vh) 0 0 max(200vw, 200vh) #334;
 }
 
