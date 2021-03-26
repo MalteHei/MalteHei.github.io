@@ -1,33 +1,48 @@
-body {
-  font-family: Roboto, sans-serif;
+html {
   background: #223;
-  color: #ccc;
+  color: #ddd;
+  font-family: Roboto, sans-serif;
   font-size: 1.5rem;
+  text-align: center;
   overflow: hidden;
 }
 
-.middle-outer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100vh;
-  transform: translate(-50%, -50%) rotateY(60deg);
-  box-shadow: -100vh 0 0 200vw #334;
-}
-
-.middle-inner {
-  background-color: #223;
-  height: 100vw;
-  width: 100vw;
-  transform: rotateZ(45deg);
-}
-
-.main {
+body {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 200px;
+  width: 50%;
+  margin: 0;
+  box-shadow: min(-100vw, -100vh) 0 0 max(200vw, 200vh) #334;
+}
+
+.main {
+  width: 100%;
+}
+
+.main::before, .main::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: max(33vw, 400px) solid transparent;
+  border-bottom: max(33vw, 400px) solid transparent;
+}
+
+.main::before {
+  right: 45vw;
+  border-right: max(15vw, 100px) solid #223;
+}
+
+.main::after {
+  left: 45vw;
+  border-left: max(15vw, 100px) solid #223;
 }
 
 .socials {
@@ -36,7 +51,8 @@ body {
   align-items: center;
   justify-content: space-around;
   font-size: 2em;
-  gap: 5vw;
+  max-width: 500px;
+  margin: auto;
 }
 
 a:hover, a:visited, a:active {
@@ -46,6 +62,7 @@ a:hover, a:visited, a:active {
 
 @media (max-width: 425px) {
   .socials {
-    flex-flow: column nowrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
